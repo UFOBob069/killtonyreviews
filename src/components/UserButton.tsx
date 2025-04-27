@@ -14,7 +14,7 @@ export function UserButton() {
       await signIn()
     } catch (error: unknown) {
       // Ignore the popup-closed error as it's expected behavior
-      if (error instanceof Error && error.code !== 'auth/popup-closed-by-user') {
+      if (error instanceof Error && (error as { code?: string }).code !== 'auth/popup-closed-by-user') {
         console.error('Error signing in:', error)
       }
     }
