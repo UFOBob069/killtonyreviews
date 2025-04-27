@@ -543,7 +543,7 @@ export default function ComedianPage({ params }: { params: Promise<{ id: string 
                       <div>
                         <h4 className="font-semibold">{highlight.title}</h4>
                         <p className="text-gray-600">
-                          Episode #{episodeData?.episodes?.find(ep => ep.id === highlight.episodeId)?.number || highlight.episodeId}
+                          Episode #{comedian?.episodes?.find((ep: ExtendedEpisodeData) => ep.id === highlight.episodeId)?.number || highlight.episodeId}
                           {highlight.timestamp && ` • ${highlight.timestamp}`}
                         </p>
                       </div>
