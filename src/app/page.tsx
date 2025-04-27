@@ -8,46 +8,6 @@ import { getTopComedians, getBits } from '@/lib/firebase'
 import type { ComedianData, Bit } from '@/lib/firebase'
 import { getEpisodes } from '@/lib/firebase'
 
-// Placeholder data - will be replaced with Firebase data
-const featuredEpisode = {
-  id: '1',
-  number: 619,
-  title: 'Tony Casillas Returns!',
-  date: '2024-01-01',
-  thumbnail: '/placeholder.jpg',
-  rating: 4.8,
-  guest: 'Tony Casillas',
-  summary: 'Tony Casillas makes his triumphant return to the show, bringing his signature energy and hilarious takes on current events.',
-  comedians: [
-    { name: 'Hans Kim', status: 'killed', goldenTicket: true },
-    { name: 'David Lucas', status: 'mixed', goldenTicket: false },
-    { name: 'Jane Smith', status: 'bombed', goldenTicket: false }
-  ]
-}
-
-const topMoments = [
-  {
-    id: '1',
-    title: 'Hans Kim Gets Roasted',
-    episodeNumber: 619,
-    timestamp: '12:34',
-    comedian: 'Hans Kim',
-    category: 'Roast',
-    upvotes: 156,
-    description: 'Tony drops a legendary one-liner that leaves Hans speechless'
-  },
-  {
-    id: '2',
-    title: 'David Lucas Crowd Work',
-    episodeNumber: 618,
-    timestamp: '20:15',
-    comedian: 'David Lucas',
-    category: 'Crowd Work',
-    upvotes: 89,
-    description: 'Epic crowd work moment that had everyone in stitches'
-  }
-]
-
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [topComedians, setTopComedians] = useState<ComedianData[]>([])

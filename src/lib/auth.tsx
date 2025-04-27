@@ -109,7 +109,7 @@ export function useAdmin() {
         const adminDoc = await getDoc(doc(db, 'admins', user.uid))
         if (adminDoc.exists()) {
           // Set the admin custom claim for future use
-          const token = await user.getIdToken(true) // Force refresh to get updated claims
+          const _token = await user.getIdToken(true) // Force refresh to get updated claims
           setIsAdmin(true)
         } else {
           setIsAdmin(false)

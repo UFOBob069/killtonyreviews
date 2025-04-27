@@ -4,6 +4,7 @@ import { useAuth } from '@/lib/auth'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { UserCircleIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 export function UserButton() {
   const { user, loading, signIn, signOut } = useAuth()
@@ -11,9 +12,9 @@ export function UserButton() {
   const handleSignIn = async () => {
     try {
       await signIn()
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Ignore the popup-closed error as it's expected behavior
-      if (error.code !== 'auth/popup-closed-by-user') {
+      if (error instanceof Error && error.code !== 'auth/popup-closed-by-user') {
         console.error('Error signing in:', error)
       }
     }
@@ -40,10 +41,12 @@ export function UserButton() {
     <Menu as="div" className="relative">
       <Menu.Button className="flex items-center space-x-2 text-white hover:text-gray-300">
         {user.photoURL ? (
-          <img
+          <Image
             src={user.photoURL}
             alt={user.displayName || 'User'}
             className="w-8 h-8 rounded-full"
+            width={32}
+            height={32}
           />
         ) : (
           <UserCircleIcon className="w-8 h-8" />

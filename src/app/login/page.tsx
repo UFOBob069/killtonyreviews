@@ -3,7 +3,6 @@
 import { useAuth } from '@/lib/auth'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import Image from 'next/image'
 
 export default function LoginPage() {
   const { user, loading, signIn } = useAuth()

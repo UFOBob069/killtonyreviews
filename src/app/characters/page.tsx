@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getRecurringCharacters } from '@/lib/firebase'
 
 // Placeholder data - will be replaced with Firebase data
 const characters = [

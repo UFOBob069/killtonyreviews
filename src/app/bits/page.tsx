@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { getBits, submitBit, upvoteBit } from '@/lib/firebase'
 
 // Placeholder data - will be replaced with Firebase data
 const bits = [
