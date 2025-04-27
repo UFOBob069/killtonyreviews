@@ -1,0 +1,69 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && 
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function isValidRating() {
+      return request.resource.data.rating >= 1 && request.resource.data.rating <= 5;
+    }
+
+    // Admins collection
+    match /admins/{userId} {
+      allow read: if isSignedIn();
+      // Allow write if document doesn't exist and user is writing their own document
+      allow create: if isSignedIn() && userId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // Episodes collection
+    match /episodes/{episodeId} {
+      allow read: if true;  // Anyone can read episodes
+      allow create, update, delete: if isAdmin();  // Only admins can modify episodes
+    }
+
+    // Comedians collection
+    match /comedians/{comedianId} {
+      allow read: if true;  // Anyone can read comedian profiles
+      allow create, update, delete: if isAdmin();  // Only admins can modify comedian profiles
+    }
+
+    // Reviews collection
+    match /reviews/{reviewId} {
+      allow read: if true;  // Anyone can read reviews
+      allow create: if isSignedIn();  // Must be signed in to create reviews
+      allow update: if isSignedIn() && 
+        (isOwner(resource.data.userId) || isAdmin());
+      allow delete: if isAdmin();  // Only admins can delete reviews
+    }
+
+    // Moments/Bits collection
+    match /moments/{bitId} {
+      allow read: if true;  // Anyone can read bits
+      allow create: if isSignedIn();  // Must be signed in to create bits
+      allow update: if isSignedIn() && 
+        (isOwner(resource.data.userId) || isAdmin());
+      allow delete: if isAdmin();  // Only admins can delete bits
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isSignedIn() && 
+        (isOwner(userId) || isAdmin());
+      allow delete: if isAdmin();
+    }
+  }
+} 
