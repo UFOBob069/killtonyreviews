@@ -292,7 +292,7 @@ export default function HomePage() {
                     <span className="text-sm text-gray-600">
                       {comedian.reviews?.length || 0} review{comedian.reviews?.length !== 1 ? 's' : ''}
                     </span>
-                    {comedian.averageRating > 0 && (
+                    {comedian.averageRating !== undefined && comedian.averageRating > 0 && (
                       <>
                         <span className="text-sm text-gray-600">•</span>
                         <div className="flex items-center">
