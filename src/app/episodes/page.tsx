@@ -157,7 +157,7 @@ export default function EpisodesPage() {
                       </h3>
                     </div>
                     <div className="text-sm text-gray-500">
-                      {new Date(episode.createdAt).toLocaleDateString()}
+                      {new Date(episode.publishedAt || episode.date).toLocaleDateString()}
                     </div>
                   </div>
                   
