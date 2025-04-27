@@ -67,7 +67,7 @@ export default function HallOfFamePage() {
                     <div className="space-y-2">
                       <div className="flex items-center gap-3 text-gray-200">
                         <span className="text-lg">{comedian.totalAppearances || 0} appearances</span>
-                        {comedian.averageRating > 0 && (
+                        {comedian.averageRating !== undefined && comedian.averageRating > 0 && (
                           <>
                             <span>•</span>
                             <div className="flex items-center">
