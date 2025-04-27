@@ -68,7 +68,7 @@ export default function BitsPage() {
 
   const filteredBits = bits.filter(bit => {
     const matchesCategory = selectedCategory === 'all' || bit.category === selectedCategory
-    const matchesSearch = bit.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const matchesSearch = (bit.title?.toLowerCase().includes(searchQuery.toLowerCase()) || false) ||
                          bit.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          bit.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     return matchesCategory && matchesSearch
