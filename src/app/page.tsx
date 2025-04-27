@@ -59,7 +59,7 @@ export default function HomePage() {
               <UserGroupIcon className="h-6 w-6 text-red-600" />
             </div>
             <h3 className="font-semibold text-lg mb-2">Follow Comedians</h3>
-            <p className="text-gray-600 mb-4">Track your favorite comedians' journeys and performances</p>
+            <p className="text-gray-600 mb-4">Track your favorite comedians&apos; journeys and performances</p>
             <Link
               href="/comedians"
               className="text-red-600 hover:text-red-700 font-medium"

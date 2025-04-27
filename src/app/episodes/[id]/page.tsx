@@ -6,9 +6,6 @@ import Link from 'next/link'
 import { getEpisode, submitReview, upvoteReview, submitBit, upvoteBit } from '@/lib/firebase'
 import { useAuth } from '@/lib/auth'
 import type { EpisodeData, ReviewData, Bit } from '@/lib/firebase'
-import { StarIcon } from '@heroicons/react/24/outline'
-import { collection, query, where, getDocs } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
 
 interface ExtendedReviewData extends ReviewData {
   user?: {
