@@ -7,8 +7,8 @@ import Header from '@/components/Header';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "KillTonyFanReviews.com",
-  description: "Unofficial fan site for Kill Tony lovers. Leave reviews, rank episodes, and track your favorite comics.",
+  title: "KillTonyUniverse.com",
+  description: "Unofficial fan site for Kill Tony lovers. Explore the universe of Kill Tony, leave reviews, rank episodes, and track your favorite comics.",
 };
 
 export default function RootLayout({
