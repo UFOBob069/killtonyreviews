@@ -11,7 +11,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold">
-            KillTonyFanReviews
+            Kill Tony Universe
           </Link>
           {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-6">
@@ -20,6 +20,7 @@ export default function Header() {
               <Link href="/comedians" className="hover:text-gray-300">Comedians</Link>
               <Link href="/hall-of-fame" className="hover:text-gray-300">Hall of Fame</Link>
               <Link href="/golden-tickets" className="hover:text-gray-300">Golden Tickets</Link>
+              <Link href="/about" className="hover:text-gray-300">About</Link>
             </div>
             <UserButton />
           </div>
@@ -43,6 +44,7 @@ export default function Header() {
             <Link href="/comedians" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Comedians</Link>
             <Link href="/hall-of-fame" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Hall of Fame</Link>
             <Link href="/golden-tickets" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>Golden Tickets</Link>
+            <Link href="/about" className="hover:text-gray-300" onClick={() => setMenuOpen(false)}>About</Link>
             <div className="pt-2 border-t border-gray-700">
               <UserButton />
             </div>
