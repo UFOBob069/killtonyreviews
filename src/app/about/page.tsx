@@ -16,11 +16,11 @@ export default function AboutPage() {
         <section>
           <h2 className="text-xl font-semibold mb-3">Get Involved</h2>
           <p className="text-gray-700">
-            We're looking for passionate Kill Tony fans to help build and improve this site! This is a volunteer-only 
-            project - we're not looking to create profit, just to build something great for the community.
+            We&apos;re looking for passionate Kill Tony fans to help build and improve this site! This is a volunteer-only 
+            project - we&apos;re not looking to create profit, just to build something great for the community.
           </p>
           <p className="text-gray-700 mt-2">
-            If you're interested in contributing your skills (development, design, content creation, etc.), we'd love to 
+            If you&apos;re interested in contributing your skills (development, design, content creation, etc.), we&apos;d love to 
             hear from you!
           </p>
         </section>
